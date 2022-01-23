@@ -58,17 +58,6 @@ return require("packer").startup(function(use)
     })
     -- auto pairs
     use("windwp/nvim-autopairs")
-    -- surround with
-    use({
-        "blackCauldron7/surround.nvim",
-        config = function()
-            require("surround").setup({
-                mappings_style = "surround",
-                map_insert_mode = false,
-            })
-            vim.api.nvim_del_keymap("v", "s")
-        end,
-    })
     -- comment
     use({
         "numToStr/Comment.nvim",
@@ -134,7 +123,7 @@ return require("packer").startup(function(use)
     use("nvim-telescope/telescope-media-files.nvim")
     -- colorscheme
     use({
-        'folke/tokyonight.nvim',
+        "folke/tokyonight.nvim",
         config = function()
             require("modules.editor.theme")
         end,

@@ -17,6 +17,7 @@ local hl_list = {
     Active = { 'ActiveFg', 'ActiveBg' },
 }
 local basic = {}
+local breakpoint_width = 90
 
 basic.divider = { b_components.divider, '' }
 basic.file_name_inactive = { b_components.full_file_name, hl_list.Inactive }
@@ -86,6 +87,31 @@ basic.file = {
         }
     end,
 }
+-- basic.file = {
+--     name = "file",
+--     hl_colors = {
+--         default = hl_list.Black,
+--         white = { "white", "black" },
+--         magenta = { "magenta", "black" },
+--     },
+--     text = function(_, _, width)
+--         if width > breakpoint_width then
+--             return {
+--                 { b_components.cache_file_name("[No Name]", "unique"), "magenta" },
+--                 { b_components.line_col_lua, "white" },
+--                 { b_components.progress_lua, "" },
+--                 { " ", "" },
+--                 { b_components.file_modified(" "), "magenta" },
+--             }
+--         else
+--             return {
+--                 { b_components.cache_file_name("[No Name]", "unique"), "magenta" },
+--                 { " ", "" },
+--                 { b_components.file_modified(" "), "magenta" },
+--             }
+--         end
+--     end,
+-- }
 
 basic.right = {
     hl_colors = {
@@ -124,6 +150,23 @@ basic.git = {
         return ''
     end,
 }
+basic.lsp_name = {
+    width = breakpoint_width,
+    name = "lsp_name",
+    hl_colors = {
+        magenta = { "magenta", "black" },
+    },
+    text = function(bufnr)
+        if lsp_comps.check_lsp(bufnr) then
+            return {
+                { lsp_comps.lsp_name(), "magenta" },
+            }
+        end
+        return {
+            { b_components.cache_file_type({ icon = true }), "magenta" },
+        }
+    end,
+}
 
 local default = {
     filetypes = { 'default' },
@@ -136,6 +179,8 @@ local default = {
         basic.lsp_diagnos,
         basic.git,
         basic.divider,
+        basic.lsp_name,
+        { ' ', hl_list.Black },
         { git_comps.git_branch({ icon = '  ' }), { 'green', 'black' }, 90 },
         { ' ', hl_list.Black },
         basic.right,

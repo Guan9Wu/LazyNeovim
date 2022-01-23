@@ -48,7 +48,7 @@ end
 
 -- setup for lua language server
 nvim_lsp.sumneko_lua.setup({
-    cmd = { "lua-language-server", "-E", "D:\\\\Development\\\\lua-language-server\\\\main.lua" },
+    cmd = { "lua-language-server", "-E" },
     --on_attach = on_attach,
     --capabilities = capabilities,
     settings = {
