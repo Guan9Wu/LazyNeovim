@@ -10,13 +10,6 @@ return require("packer").startup(function(use)
             require("nvim-web-devicons").setup({ default = true })
         end,
     })
-    -- termial integration
-    use({
-        "akinsho/nvim-toggleterm.lua",
-        config = function()
-            require("modules.toggleterm")
-        end,
-    })
 
     -- auto completion
     use({
@@ -48,7 +41,12 @@ return require("packer").startup(function(use)
         end,
     })
     -- lsp UI staffs
-    use("tami5/lspsaga.nvim")
+    use({
+        "tami5/lspsaga.nvim",
+        config = function ()
+            require("modules.saga")
+        end,
+    })
     -- treesitter config
     use({
         "nvim-treesitter/nvim-treesitter",
