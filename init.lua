@@ -1,4 +1,3 @@
-require("misc")
 require("modules.neovide")
 require("plugins")
 require("core")
