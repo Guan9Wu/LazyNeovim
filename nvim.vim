@@ -6,7 +6,6 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " General Highlighter
 Plug 'RRethy/vim-illuminate'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " Undotree
 Plug 'mbbill/undotree'
@@ -29,11 +28,6 @@ augroup END
 
 " Highlight word under cursor (default: 1)
 let g:Illuminate_highlightUnderCursor = 1
-
-" ===
-" === vim-hexokinase
-" ===
-let g:Hexokinase_highlighters = ['virtual']
 
 " ===
 " === Undotree

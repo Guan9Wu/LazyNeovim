@@ -1,3 +1,4 @@
+local cmd = vim.cmd
 local disable_distribution_plugins= function()
   vim.g.loaded_gzip              = 1
   vim.g.loaded_tar               = 1
@@ -34,7 +35,7 @@ local load_core =function()
   -- pack.ensure_plugins()
 
   require('core.options')
-  vim.cmd("source E:\\Neovim\\nvim\\lua\\core\\keymap.vim")
+  cmd("source E:\\Neovim\\nvim\\lua\\core\\keymap.vim")
   require('core.keymap')
   -- require('keymap')
   require('core.event')

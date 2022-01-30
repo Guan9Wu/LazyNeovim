@@ -133,7 +133,7 @@ noremap tl :+tabnext<CR>
 noremap \s :%s///g<left><left><left>
 
 " Compile function
-"noremap <F5> :call CompileRunGcc()<CR>
+noremap <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
@@ -144,7 +144,7 @@ func! CompileRunGcc()
 		exec "!g++ -std=c++11 % -Wall -o %<"
 		:sp
 		:res -15
-		:term .\%<
+		:term %<
 	elseif &filetype == 'java'
 		exec "!javac %"
 		exec "!time java %<"

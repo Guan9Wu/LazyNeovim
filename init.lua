@@ -3,4 +3,5 @@ require("modules.neovide")
 require("plugins")
 require("core")
 require("modules")
-vim.cmd [[runtime .\nvim.vim]]
+local cmd = vim.cmd
+cmd("runtime .\\nvim.vim")
