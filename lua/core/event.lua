@@ -16,7 +16,7 @@ end
 function autocmd.load_autocmds()
   local definitions = {
     packer = {
-      {"BufWritePost","*.lua","lua require('core.pack').auto_compile()"};
+      {"BufWritePost","plugins.lua","source <afile> | PackerCompile"};
     },
     bufs = {
       -- Reload vim config automatically
@@ -28,7 +28,6 @@ function autocmd.load_autocmds()
       {"BufWritePre","MERGE_MSG","setlocal noundofile"};
       {"BufWritePre","*.tmp","setlocal noundofile"};
       {"BufWritePre","*.bak","setlocal noundofile"};
-      {"BufWritePre","*.tsx","lua vim.api.nvim_command('Format')"};
     };
 
     wins = {
