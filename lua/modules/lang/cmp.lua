@@ -1,5 +1,4 @@
 -- load snippets made by luasnip
-require("snippets")
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 
