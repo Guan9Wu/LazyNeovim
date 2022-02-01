@@ -1,6 +1,3 @@
-require("modules.neovide")
-require("plugins")
-require("core")
-require("modules")
+require("bootstrap")
 local cmd = vim.cmd
 cmd("runtime .\\nvim.vim")

@@ -1,5 +1,10 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = {
+    "bash", "c", "cpp", "cmake", "css", "comment", "dockerfile",
+    "go", "html", "http", "java", "javascript", "json",
+    "latex", "llvm", "lua", "make", "python", "query", 
+    "regex", "toml", "typescript", "vim", "yaml", 
+  },
   sync_install = true,
   ignore_install = {},
 
