@@ -1,4 +1,4 @@
-vim.cmd [[packadd packer.nvim]]
+vim.cmd([[packadd packer.nvim]])
 
 require("packer").startup(function(use)
 	-- package manager
@@ -19,7 +19,7 @@ require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
--- null-ls for missing ls functionalities
+	-- null-ls for missing ls functionalities
 	use("jose-elias-alvarez/null-ls.nvim")
 	-- lsp UI staffs
 	use("tami5/lspsaga.nvim")
@@ -44,59 +44,60 @@ require("packer").startup(function(use)
 	use("kyazdani42/nvim-tree.lua")
 	-- fuzzy finder
 	use("nvim-telescope/telescope.nvim")
-	use{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	-- media file preview extension for telescope
 	use("nvim-telescope/telescope-media-files.nvim")
 	-- colorscheme
 	use("folke/tokyonight.nvim")
 	-- colorizer
 	use("norcalli/nvim-colorizer.lua")
-	-- debuger
-	use("sakhnik/nvim-gdb")
 	-- startup
 	use("glepnir/dashboard-nvim")
-  -- general highlighter
-  use("RRethy/vim-illuminate")
-  -- undotree
-  use("mbbill/undotree")
+	-- general highlighter
+	use("RRethy/vim-illuminate")
+	-- undotree
+	use("mbbill/undotree")
+	-- dap
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 end)
 
 local modules = {
-  editor = {
-    "theme",
-    "bbline",
-    "windline",
-    "colorizer",
-    "dashboard",
-  },
-  produc = {
-    "gitsigns",
-    "indent",
-    "telescope",
-    "tree",
-    "whichkey",
-  },
-  lang = {
-    "cmp",
-    "comment",
-    "lspconf",
-    "luasnip",
-    "nullls",
-    "saga",
-    "treesitter",
-  },
-  gui = {
-    "neovide",
-  }
+	editor = {
+		"theme",
+		"bbline",
+		"windline",
+		"colorizer",
+		"dashboard",
+	},
+	produc = {
+		"gitsigns",
+		"indent",
+		"telescope",
+		"tree",
+		"whichkey",
+	},
+	lang = {
+		"cmp",
+		"comment",
+		"lspconf",
+		"luasnip",
+		"nullls",
+		"saga",
+		"treesitter",
+		"dap",
+	},
+	gui = {
+		"neovide",
+	},
 }
 
-function load_modules(modules)
-  for name, mods in pairs(modules) do
-    for _, mod in ipairs(mods) do
-      mod_path = "modules." .. name .. "." .. mod
-      require(mod_path)
-    end
-  end
+local function load_modules(modules)
+	for name, mods in pairs(modules) do
+		for _, mod in ipairs(mods) do
+			local mod_path = "modules." .. name .. "." .. mod
+			require(mod_path)
+		end
+	end
 end
 
 load_modules(modules)
@@ -125,9 +126,9 @@ let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
 function g:Undotree_CustomMap()
-  nmap <buffer> k <plug>UndotreeNextState
-  nmap <buffer> j <plug>UndotreePreviousState
-  nmap <buffer> K 5<plug>UndotreeNextState
-  nmap <buffer> J 5<plug>UndotreePreviousState
+  nnoremap <buffer> k <plug>UndotreeNextState
+  nnoremap <buffer> j <plug>UndotreePreviousState
+  nnoremap <buffer> K 5<plug>UndotreeNextState
+  nnoremap <buffer> J 5<plug>UndotreePreviousState
 endfunc
 ]])
