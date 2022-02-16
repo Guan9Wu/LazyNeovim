@@ -87,31 +87,6 @@ basic.file = {
         }
     end,
 }
--- basic.file = {
---     name = "file",
---     hl_colors = {
---         default = hl_list.Black,
---         white = { "white", "black" },
---         magenta = { "magenta", "black" },
---     },
---     text = function(_, _, width)
---         if width > breakpoint_width then
---             return {
---                 { b_components.cache_file_name("[No Name]", "unique"), "magenta" },
---                 { b_components.line_col_lua, "white" },
---                 { b_components.progress_lua, "" },
---                 { " ", "" },
---                 { b_components.file_modified(" "), "magenta" },
---             }
---         else
---             return {
---                 { b_components.cache_file_name("[No Name]", "unique"), "magenta" },
---                 { " ", "" },
---                 { b_components.file_modified(" "), "magenta" },
---             }
---         end
---     end,
--- }
 
 basic.right = {
     hl_colors = {

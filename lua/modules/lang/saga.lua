@@ -15,22 +15,22 @@ keymap("n", "<Leader>gs", [[:Lspsaga signature_help<CR>]], opt)
 keymap("n", "<Leader>rn", [[:Lspsaga rename<CR>]], opt)
 
 saga.init_lsp_saga({
-    finder_action_keys = {
-        open = "o",
-        vsplit = "s",
-        split = "h",
-        quit = { "q", "Esc" },
-        scroll_down = "<A-j>",
-        scroll_up = "<A-k>", -- quit can be a table
-    },
-    code_action_keys = {
-        quit = { "q", "Esc" },
-        exec = "<CR>",
-    },
-    rename_action_keys = {
-        quit = "<Esc>",
-        exec = "<CR>", -- quit can be a table
-    },
-    -- "single" "double" "round" "plus"
+    finder_action_keys = {
+        open = "o",
+        vsplit = "s",
+        split = "h",
+        quit = { "q", "Esc" },
+        scroll_down = "<A-j>",
+        scroll_up = "<A-k>", -- quit can be a table
+    },
+    code_action_keys = {
+        quit = { "q", "Esc" },
+        exec = "<CR>",
+    },
+    rename_action_keys = {
+        quit = "<Esc>",
+        exec = "<CR>", -- quit can be a table
+    },
+    -- "single" "double" "round" "plus"
     border_style = "round",
 })
