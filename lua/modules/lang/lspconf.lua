@@ -1,4 +1,5 @@
 local nvim_lsp = require("lspconfig")
+local isWindows = vim.loop.os_uname().version:match("Windows")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -79,6 +80,26 @@ nvim_lsp.pylsp.setup({
 })
 
 -- setup for C/C++ by langd
+<<<<<<< HEAD
+if isWindows then
+	nvim_lsp.clangd.setup({
+		cmd = {
+			"clangd",
+			"--query-driver",
+			"D:\\Development\\Scoop\\apps\\gcc\\current\\include\\c++\\11.2.0",
+			"--pretty",
+		},
+	})
+else
+  nvim_lsp.clangd.setup({
+    cmd = {
+      "clangd",
+      "--pretty",
+    },
+  })
+end
+=======
 nvim_lsp.clangd.setup({
 	cmd = { "clangd", "--pretty" },
 })
+>>>>>>> main

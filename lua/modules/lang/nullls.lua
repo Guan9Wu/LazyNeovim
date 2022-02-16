@@ -48,11 +48,11 @@ null_ls.setup({
 		if client.supports_method("textDocument/formatting") then
 			-- wrap in an augroup to prevent duplicate autocmds
 			cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
-            augroup END
-            ]])
+        augroup LspFormatting
+          autocmd! * <buffer>
+          autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
+        augroup END
+      ]])
 		end
 	end,
 })

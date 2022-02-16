@@ -1,13 +1,34 @@
 local cmd = vim.cmd
 vim.g.dashboard_default_executive = "telescope"
+<<<<<<< HEAD
+vim.g.dashboard_custom_header = {
+	"",
+	" ⣿⡇⣿⣿⣿⠛⠁⣴⣿⡿⠿⠧⠹⠿⠘⣿⣿⣿⡇⢸⡻⣿⣿⣿⣿⣿⣿⣿ ",
+	" ⢹⡇⣿⣿⣿⠄⣞⣯⣷⣾⣿⣿⣧⡹⡆⡀⠉⢹⡌⠐⢿⣿⣿⣿⡞⣿⣿⣿ ",
+	" ⣾⡇⣿⣿⡇⣾⣿⣿⣿⣿⣿⣿⣿⣿⣄⢻⣦⡀⠁⢸⡌⠻⣿⣿⣿⡽⣿⣿ ",
+	" ⡇⣿⠹⣿⡇⡟⠛⣉⠁⠉⠉⠻⡿⣿⣿⣿⣿⣿⣦⣄⡉⠂⠈⠙⢿⣿⣝⣿ ",
+	" ⠤⢿⡄⠹⣧⣷⣸⡇⠄⠄⠲⢰⣌⣾⣿⣿⣿⣿⣿⣿⣶⣤⣤⡀⠄⠈⠻⢮ ",
+	"   ⣧⠄⢘⢻⣿⡇⢀⣀⠄⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠄⢀ ",
+	"   ⣿⡆⢸⣿⣿⣿⣬⣭⣴⣿⣿⣿⣿⣿⣿⣿⣯⠝⠛⠛⠙⢿⡿⠃⠄⢸ ",
+	"   ⢿⣿⡀⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⡾⠁⢠⡇⢀ ",
+	"   ⢸⣿⡇⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⣫⣻⡟⢀⠄⣿⣷⣾ ",
+	"   ⢸⣿⡇⠄⠈⠙⠿⣿⣿⣿⣮⣿⣿⣿⣿⣿⣿⣿⣿⡿⢠⠊⢀⡇⣿⣿ ",
+	"    ⣿⡇⢀⡲⠄⠄⠈⠙⠻⢿⣿⣿⠿⠿⠟⠛⠋⠁⣰⠇ ⢸⣿⣿⣿ ",
+	"    ⣿⡇⢬⡻⡇⡄⠄⠄⠄⡰⢖⠔⠉⠄⠄⠄⠄⣼⠏  ⢸⣿⣿⣿ ",
+	"    ⣿⡇⠄⠙⢌⢷⣆⡀⡾⡣⠃⠄⠄⠄⠄⠄⣼⡟    ⢿⣿⣿ ",
+	"",
+	" Good Good Study, Day Day up! ",
+}
+=======
+>>>>>>> main
 vim.g.dashboard_custom_shortcut = {
 	last_session = "SPC s l",
-	find_history = "SPC f h",
+	find_history = "SPC f o",
 	find_file = "SPC f f",
-	new_file = "SPC c n",
+	new_file = "SPC n f",
 	change_colorscheme = "SPC t c",
-	find_word = "SPC f a",
-	book_marks = "SPC f b",
+	find_word = "SPC f w",
+	book_marks = "SPC f m",
 }
 vim.g.dashboard_custom_shortcut_icon = {
 	last_session = " ",
@@ -26,5 +47,5 @@ cmd([[
   nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
   nnoremap <silent> <Leader>fw :DashboardFindWord<CR>
   nnoremap <silent> <Leader>fm :DashboardJumpMark<CR>
-  nnoremap <silent> <Leader>n :DashboardNewFile<CR>
+  nnoremap <silent> <Leader>nf :DashboardNewFile<CR>
 ]])

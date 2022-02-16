@@ -149,10 +149,20 @@ _G.packer_plugins = {
     path = "E:\\Neovim\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
-  ["nvim-gdb"] = {
+  ["nvim-dap"] = {
     loaded = true,
+<<<<<<< HEAD
+    path = "/home/gino/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/gino/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+=======
     path = "E:\\Neovim\\nvim-data\\site\\pack\\packer\\start\\nvim-gdb",
     url = "https://github.com/sakhnik/nvim-gdb"
+>>>>>>> main
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -208,6 +218,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "E:\\Neovim\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/home/gino/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/home/gino/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["which-key.nvim"] = {
     loaded = true,
