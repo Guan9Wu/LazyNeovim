@@ -13,9 +13,6 @@ keymap("n", "<Leader>gd", [[:Lspsaga hover_doc<CR>]], opt)
 keymap("n", "<Leader>gs", [[:Lspsaga signature_help<CR>]], opt)
 -- rename
 keymap("n", "<Leader>rn", [[:Lspsaga rename<CR>]], opt)
--- float terminal also you can pass the cli command in open_float_terminal function
-keymap("n", "<A-t>", [[:Lspsaga open_floaterm<CR>]], opt)
-keymap("t", "<A-t>", [[<C-\><C-n>:Lspsaga close_floaterm<CR>]], opt)
 
 saga.init_lsp_saga({
 	finder_action_keys = {

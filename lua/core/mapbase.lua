@@ -31,6 +31,7 @@ map("c", "<A-k>", "<up>", opts)
 
 -- Terminal
 -- map("t", "<A-q>", "<C-\\><C-n>", opts)  -- quit
+map("t", "<Esc>", "<C-\\><C-n>", opts) -- quit
 
 map("t", "<A-h>", "<C-\\><C-n><C-w>h", opts) -- shift window
 map("t", "<A-j>", "<C-\\><C-n><C-w>j", opts)

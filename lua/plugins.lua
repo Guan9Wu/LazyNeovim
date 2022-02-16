@@ -62,7 +62,6 @@ require("packer").startup(function(use)
 end)
 
 local modules = {
-<<<<<<< HEAD
 	editor = {
 		"theme",
 		"bbline",
@@ -85,37 +84,16 @@ local modules = {
 		"nullls",
 		"saga",
 		"treesitter",
+	},
+	linux = {
 		"dap",
 	},
-	gui = {
-		"neovide",
-	},
-=======
-  editor = {
-    "theme",
-    "bbline",
-    "windline",
-    "colorizer",
-    "dashboard",
-  },
-  produc = {
-    "gitsigns",
-    "indent",
-    "telescope",
-    "tree",
-    "whichkey",
-  },
-  lang = {
-    "cmp",
-    "comment",
-    "lspconf",
-    "luasnip",
-    "nullls",
-    "saga",
-    "treesitter",
-  },
->>>>>>> main
 }
+
+-- if use Windows OS, remove some plugins that only work in Unix
+if vim.loop.os_uname().version:match("Windows") then
+	modules["linux"] = nil
+end
 
 local function load_modules(modules)
 	for name, mods in pairs(modules) do

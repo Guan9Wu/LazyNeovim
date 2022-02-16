@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\12152\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\12152\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\12152\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\12152\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\12152\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
+local package_path_str = "C:\\Users\\Gino\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\Gino\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\Gino\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\Gino\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
+local install_cpath_pattern = "C:\\Users\\Gino\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -151,18 +151,13 @@ _G.packer_plugins = {
   },
   ["nvim-dap"] = {
     loaded = true,
-<<<<<<< HEAD
-    path = "/home/gino/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    path = "E:\\Neovim\\nvim-data\\site\\pack\\packer\\start\\nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-dap-ui"] = {
     loaded = true,
-    path = "/home/gino/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    path = "E:\\Neovim\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
-=======
-    path = "E:\\Neovim\\nvim-data\\site\\pack\\packer\\start\\nvim-gdb",
-    url = "https://github.com/sakhnik/nvim-gdb"
->>>>>>> main
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -221,12 +216,12 @@ _G.packer_plugins = {
   },
   undotree = {
     loaded = true,
-    path = "/home/gino/.local/share/nvim/site/pack/packer/start/undotree",
+    path = "E:\\Neovim\\nvim-data\\site\\pack\\packer\\start\\undotree",
     url = "https://github.com/mbbill/undotree"
   },
   ["vim-illuminate"] = {
     loaded = true,
-    path = "/home/gino/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    path = "E:\\Neovim\\nvim-data\\site\\pack\\packer\\start\\vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
   },
   ["which-key.nvim"] = {
@@ -247,5 +242,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
