@@ -8,7 +8,12 @@ local sources = {
 	null_ls.builtins.formatting.clang_format.with({
 		filetypes = { "c", "cpp", "cs", "java" },
 		command = "clang-format",
-		args = { "-assume-filename=<FILENAME>", "--style=GUN" },
+		args = { "-assume-filename=<FILENAME>" },
+	}),
+	null_ls.builtins.formatting.stylua.with({
+		iletypes = { "lua" },
+		command = "stylua",
+		args = { "-s", "-", "--indent-type", "Spaces" },
 	}),
 }
 _G.formatting = function(bufnr)
@@ -47,12 +52,12 @@ null_ls.setup({
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			-- wrap in an augroup to prevent duplicate autocmds
-			cmd([[
-        augroup LspFormatting
-          autocmd! * <buffer>
-          autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
-        augroup END
-      ]])
+			cmd([[
+                augroup LspFormatting
+                    autocmd! * <buffer>
+                    autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
+                augroup END
+            ]])
 		end
 	end,
 })

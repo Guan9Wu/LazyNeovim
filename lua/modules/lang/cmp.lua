@@ -11,7 +11,7 @@ cmp.setup({
     mapping = {
         ["<CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true
+            select = true,
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
