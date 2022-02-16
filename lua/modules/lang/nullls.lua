@@ -5,6 +5,11 @@ local cmd = vim.cmd
 local sources = {
 	null_ls.builtins.formatting.clang_format,
 	null_ls.builtins.formatting.stylua,
+	null_ls.builtins.formatting.clang_format.with({
+		filetypes = { "c", "cpp", "cs", "java" },
+		command = "clang-format",
+		args = { "-assume-filename=<FILENAME>", "--style=GUN" },
+	}),
 }
 _G.formatting = function(bufnr)
 	bufnr = tonumber(bufnr) or vim.api.nvim_get_current_buf()

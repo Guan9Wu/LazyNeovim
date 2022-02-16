@@ -1,5 +1,6 @@
 local cmd = vim.cmd
 vim.g.dashboard_default_executive = "telescope"
+<<<<<<< HEAD
 vim.g.dashboard_custom_header = {
 	"",
 	" ⣿⡇⣿⣿⣿⠛⠁⣴⣿⡿⠿⠧⠹⠿⠘⣿⣿⣿⡇⢸⡻⣿⣿⣿⣿⣿⣿⣿ ",
@@ -18,6 +19,8 @@ vim.g.dashboard_custom_header = {
 	"",
 	" Good Good Study, Day Day up! ",
 }
+=======
+>>>>>>> main
 vim.g.dashboard_custom_shortcut = {
 	last_session = "SPC s l",
 	find_history = "SPC f o",

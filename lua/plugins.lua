@@ -62,6 +62,7 @@ require("packer").startup(function(use)
 end)
 
 local modules = {
+<<<<<<< HEAD
 	editor = {
 		"theme",
 		"bbline",
@@ -89,6 +90,31 @@ local modules = {
 	gui = {
 		"neovide",
 	},
+=======
+  editor = {
+    "theme",
+    "bbline",
+    "windline",
+    "colorizer",
+    "dashboard",
+  },
+  produc = {
+    "gitsigns",
+    "indent",
+    "telescope",
+    "tree",
+    "whichkey",
+  },
+  lang = {
+    "cmp",
+    "comment",
+    "lspconf",
+    "luasnip",
+    "nullls",
+    "saga",
+    "treesitter",
+  },
+>>>>>>> main
 }
 
 local function load_modules(modules)
@@ -100,6 +126,7 @@ local function load_modules(modules)
 	end
 end
 
+require("modules.gui")
 load_modules(modules)
 
 vim.cmd([[

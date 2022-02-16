@@ -80,6 +80,7 @@ nvim_lsp.pylsp.setup({
 })
 
 -- setup for C/C++ by langd
+<<<<<<< HEAD
 if isWindows then
 	nvim_lsp.clangd.setup({
 		cmd = {
@@ -97,3 +98,8 @@ else
     },
   })
 end
+=======
+nvim_lsp.clangd.setup({
+	cmd = { "clangd", "--pretty" },
+})
+>>>>>>> main
