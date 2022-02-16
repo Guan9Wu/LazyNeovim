@@ -1,4 +1,5 @@
 local cmd = vim.cmd
+vim.g.dashboard_default_executive = "telescope"
 vim.g.dashboard_custom_shortcut = {
 	last_session = "SPC s l",
 	find_history = "SPC f h",

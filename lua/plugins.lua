@@ -81,9 +81,6 @@ local modules = {
     "saga",
     "treesitter",
   },
-  gui = {
-    "neovide",
-  }
 }
 
 function load_modules(modules)
@@ -95,4 +92,5 @@ function load_modules(modules)
   end
 end
 
+require("modules.gui")
 load_modules(modules)
