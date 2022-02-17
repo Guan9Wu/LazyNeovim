@@ -62,47 +62,51 @@ map("", "<leader>rv", "<C-w>b<C-w>H", opts)
 -- find and replace
 map("", "\\s", ":%s///g<left><left><left>", opts)
 
+-- tab cd
+map("", "<leader>cd", ":tcd %:p:h<cr>", opts)
+
 -- run code
-cmd([[
-  noremap <F5> :call CompileRunGcc()<CR>
-    func! CompileRunGcc()
-  	exec "w"
-  	if &filetype == 'c'
-  		exec "!g++ % -o %<"
-  		exec "!time ./%<"
-  	elseif &filetype == 'cpp'
-  		set splitbelow
-  		exec "!g++ -std=c++11 % -Wall -o %<"
-  		:sp
-  		:res -15
-  		:Lspsaga open_floaterm ./%<
-  	elseif &filetype == 'java'
-  		exec "!javac %"
-  		exec "!time java %<"
-  	elseif &filetype == 'sh'
-  		:!time bash %
-  	elseif &filetype == 'python'
-  		set splitbelow
-  		:sp
-  		:Lspsaga open_floaterm python3 %
-  	elseif &filetype == 'html'
-  		silent! exec "!".g:mkdp_browser." % &"
-  	elseif &filetype == 'markdown'
-  		exec "InstantMarkdownPreview"
-  	elseif &filetype == 'tex'
-  		silent! exec "VimtexStop"
-  		silent! exec "VimtexCompile"
-  	elseif &filetype == 'dart'
-  		exec "CocCommand flutter.run -d ".g:flutter_default_device." ".g:flutter_run_args
-  		silent! exec "CocCommand flutter.dev.openDevLog"
-  	elseif &filetype == 'javascript'
-  		set splitbelow
-  		:sp
-  		:Lspsaga open_floaterm export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
-  	elseif &filetype == 'go'
-  		set splitbelow
-  		:sp
-  		:Lspsaga open_floaterm go run .
-  	endif
-  endfunc
-]])
+map("", "<F5>", ":!g++ -g % -o %<<cr>", opts)
+-- cmd([[
+--   noremap <F5> :call CompileRunGcc()<CR>
+--     func! CompileRunGcc()
+--   	exec "w"
+--   	if &filetype == 'c'
+--   		exec "!g++ % -o %<"
+--   		exec "!time ./%<"
+--   	elseif &filetype == 'cpp'
+--   		set splitbelow
+--   		exec "!g++ -std=c++11 % -Wall -o %<"
+--   		:sp
+--   		:res -15
+--   		:Lspsaga open_floaterm ./%<
+--   	elseif &filetype == 'java'
+--   		exec "!javac %"
+--   		exec "!time java %<"
+--   	elseif &filetype == 'sh'
+--   		:!time bash %
+--   	elseif &filetype == 'python'
+--   		set splitbelow
+--   		:sp
+--   		:Lspsaga open_floaterm python3 %
+--   	elseif &filetype == 'html'
+--   		silent! exec "!".g:mkdp_browser." % &"
+--   	elseif &filetype == 'markdown'
+--   		exec "InstantMarkdownPreview"
+--   	elseif &filetype == 'tex'
+--   		silent! exec "VimtexStop"
+--   		silent! exec "VimtexCompile"
+--   	elseif &filetype == 'dart'
+--   		exec "CocCommand flutter.run -d ".g:flutter_default_device." ".g:flutter_run_args
+--   		silent! exec "CocCommand flutter.dev.openDevLog"
+--   	elseif &filetype == 'javascript'
+--   		set splitbelow
+--   		:sp
+--   		:Lspsaga open_floaterm export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+--   	elseif &filetype == 'go'
+--   		set splitbelow
+--   		:sp
+--   		:Lspsaga open_floaterm go run .
+--   	endif
+--   endfunc
+-- ]])
