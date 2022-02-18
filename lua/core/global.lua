@@ -8,8 +8,14 @@ function global:load_variables()
     self.path_sep = path_sep
     self.data_dir = vim.fn.stdpath("data")
     self.filetype = vim.api.nvim_buf_get_option(0, "filetype")
+    -- if isWindows = true, the OS is Windows, otherwise is Unix
+    self.isWindows = vim.loop.os_uname().version:match("Windows") and true or false
 end
 
 global:load_variables()
+
+function global:check_filetype()
+    return vim.api.nvim_buf_get_option(0, "filetype")
+end
 
 return global
