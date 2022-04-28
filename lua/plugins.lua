@@ -57,6 +57,8 @@ require("packer").startup(function(use)
     use("RRethy/vim-illuminate")
     -- undotree
     use("mbbill/undotree")
+    -- markdown-preview
+    use("iamcco/markdown-preview.nvim")
     -- dap
     use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 end)
@@ -107,33 +109,3 @@ end
 require("modules.gui")
 load_modules(modules)
 
-vim.cmd([[
-" ===
-" === vim-illuminate
-" ===
-let g:Illuminate_delay = 100
-
-augroup illuminate_augroup
-  autocmd!
-  autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
-augroup END
-
-" Highlight word under cursor (default: 1)
-let g:Illuminate_highlightUnderCursor = 1
-" ===
-" === Undotree
-" ===
-noremap <LEADER>u :UndotreeToggle<CR>
-let g:undotree_DiffAutoOpen = 1
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_ShortIndicators = 1
-let g:undotree_WindowLayout = 2
-let g:undotree_DiffpanelHeight = 8
-let g:undotree_SplitWidth = 24
-function g:Undotree_CustomMap()
-  nnoremap <buffer> k <plug>UndotreeNextState
-  nnoremap <buffer> j <plug>UndotreePreviousState
-  nnoremap <buffer> K 5<plug>UndotreeNextState
-  nnoremap <buffer> J 5<plug>UndotreePreviousState
-endfunc
-]])
