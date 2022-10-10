@@ -1,4 +1,4 @@
-require("Comment").setup{
+require("Comment").setup {
     ---Add a space b/w comment and the line
     ---@type boolean
     padding = true,
@@ -18,16 +18,16 @@ require("Comment").setup{
     ---@type table
     toggler = {
         ---Line-comment toggle keymap
-        line = 'gcl',
+        line = 'glc',
         ---Block-comment toggle keymap
-        block = 'gbl',
+        block = 'gbc',
     },
 
     ---LHS of operator-pending mappings in NORMAL + VISUAL mode
     ---@type table
     opleader = {
         ---Line-comment keymap
-        line = 'gc',
+        line = 'gl',
         ---Block-comment keymap
         block = 'gb',
     },
@@ -36,11 +36,11 @@ require("Comment").setup{
     ---@type table
     extra = {
         ---Add comment on the line above
-        above = 'gck',
+        above = 'glk',
         ---Add comment on the line below
-        below = 'gcj',
+        below = 'glj',
         ---Add comment at the end of line
-        eol = 'gcL',
+        eol = 'gle',
     },
 
     -- Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
@@ -58,4 +58,3 @@ require("Comment").setup{
         extended = false,
     },
 }
-

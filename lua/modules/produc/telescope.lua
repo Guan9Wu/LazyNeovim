@@ -94,20 +94,6 @@ require("telescope").setup({
 
 require("telescope").load_extension("media_files")
 
-local opt = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
--- mappings
-keymap("n", "<Leader>ff", [[<Cmd>lua require("telescope.builtin").fd()<CR>]], opt)
-keymap("n", "<Leader>fww", [[<Cmd>lua require("telescope.builtin").live_grep()<CR>]], opt)
-keymap("n", "<Leader>fwc", [[<Cmd>lua require("telescope.builtin").grep_string()<CR>]], opt)
-keymap("n", "<Leader>fb", [[<Cmd>lua require("telescope.builtin").buffers()<CR>]], opt)
-keymap("n", "<Leader>fo", [[<Cmd>lua require("telescope.builtin").oldfiles()<CR>]], opt)
-keymap("n", "<Leader>fc", [[<Cmd>lua require("telescope.builtin").commands()<CR>]], opt)
-keymap("n", "<Leader>fm", [[<Cmd>lua require("telescope.builtin").marks()<CR>]], opt)
-keymap("n", "<Leader>fq", [[<Cmd>lua require("telescope.builtin").quickfix()<CR>]], opt)
-keymap("n", "<Leader>fk", [[<Cmd>lua require("telescope.builtin").keymaps()<CR>]], opt)
-keymap("n", "<Leader>fh", [[<Cmd>lua require("telescope.builtin").help_tags()<CR>]], opt)
-
 -- highlights
 local cmd = vim.cmd
 

@@ -7,22 +7,26 @@ require("packer").startup(function(use)
     use("nvim-lua/plenary.nvim")
     -- icons for other plugins
     use("kyazdani42/nvim-web-devicons")
-
     -- auto completion
-    use("hrsh7th/nvim-cmp")
-    use("hrsh7th/cmp-nvim-lsp")
+    use {
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path"
+    }
     -- snippet support
     use("L3MON4D3/LuaSnip")
     use("rafamadriz/friendly-snippets")
     use("saadparwaiz1/cmp_luasnip")
     -- lsp support
-    use("neovim/nvim-lspconfig")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    -- null-ls for missing ls functionalities
-    use("jose-elias-alvarez/null-ls.nvim")
+    use { "neovim/nvim-lspconfig",
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim"
+    }
     -- lsp UI staffs
-    use("tami5/lspsaga.nvim")
+    use("glepnir/lspsaga.nvim")
+    -- null-ls
+    use("jose-elias-alvarez/null-ls.nvim")
     -- treesitter config
     use("p00f/nvim-ts-rainbow")
     use("nvim-treesitter/nvim-treesitter")
@@ -31,7 +35,8 @@ require("packer").startup(function(use)
     -- comment
     use("numToStr/Comment.nvim")
     -- indent
-    use("glepnir/indent-guides.nvim")
+    -- use("glepnir/indent-guides.nvim")
+    use("lukas-reineke/indent-blankline.nvim")
     -- status line
     use("windwp/windline.nvim")
     -- clickable buffer line
@@ -51,6 +56,8 @@ require("packer").startup(function(use)
     use("folke/tokyonight.nvim")
     -- colorizer
     use("norcalli/nvim-colorizer.lua")
+    -- wilder
+    use({ "gelguy/wilder.nvim", requires = { "romgrk/fzy-lua-native" } })
     -- startup
     use("glepnir/dashboard-nvim")
     -- general highlighter
@@ -77,13 +84,14 @@ local modules = {
         "telescope",
         "tree",
         "whichkey",
+        "wilder"
     },
     lang = {
         "cmp",
         "comment",
-        "lspconf",
-        "luasnip",
+        "lspconfigure",
         "nullls",
+        "luasnip",
         "saga",
         "treesitter",
     },
@@ -106,6 +114,4 @@ local function load_modules(modules)
     end
 end
 
-require("modules.gui")
 load_modules(modules)
-

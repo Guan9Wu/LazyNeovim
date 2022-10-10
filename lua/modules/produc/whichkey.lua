@@ -63,9 +63,82 @@ wk.setup({
         i = { "j", "k" },
         v = { "j", "k" },
     },
+    -- disable the WhichKey popup for certain buf types and file types.
+    -- Disabled by deafult for Telescope
+    disable = {
+        buftypes = {},
+        filetypes = { "TelescopePrompt" },
+    },
     wk.register({
-        f = {
-            name = "find",
+        ["<leader>"] = {
+            f = {
+                name = "+File & Find",
+                n = { "<cmd>enew<cr>", "New File" },
+                r = { "Find and Replace" },
+                f = { "<cmd>Telescope find_files<cr>", "Find Files in Workspace" },
+                o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+                c = { "<cmd>Telescope commands<cr>", "Find Commands" },
+                b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
+                k = { "<cmd>Telescope keymaps<cr>", "Find Keymaps" },
+                h = { "<cmd>Telescope help_tags<cr>", "Find help_tags" },
+                w = { "<cmd>Telescope live_grep<cr>", "Find Word in Workspace" },
+                W = { "<cmd>Telescope grep_string<cr>", "Find String under cursor" },
+            },
+            s = {
+                name = "+Windows Layout",
+                h = { "Up and Down Layout" },
+                v = { "Left and Right Layout" },
+                H = { "Swap Up and Down" },
+                V = { "Swap Left and Right" },
+            },
+            c = {
+                name = "+Change Directory",
+                d = { "Change Workspace" },
+            },
+            g = {
+                name = "+Gitsigns",
+                j = { "Next Hunk" },
+                k = { "Previous Hunk" },
+                s = { "Stage Hunk" },
+                r = { "Reset Hunk" },
+                S = { "Stage Buffer" },
+                R = { "Reset Buffer" },
+                u = { "Undo Stage Hunk" },
+                p = { "Preview Hunk" },
+                D = { "Diff against the index" },
+                d = { "Diff against the last commit" },
+            },
+            l = {
+                name = "+Lspsaga",
+                h = { "Definition and Reference" },
+                a = { "Code Action" },
+                r = { "Rename Variable" },
+                d = { "Definition in Floating Window" },
+                o = { "Tags Outline" },
+                l = { "Hover Doc" },
+            },
+            d = {
+                name = "DAP Debuger",
+                c = { "Start and Continue" },
+                n = { "Step Over" },
+                i = { "Step Into" },
+                o = { "Step Out" },
+                b = { "Toggle Breakpoint" },
+            }
         },
-    }, { prefix = "<leader>" }),
+        ['g'] = {
+            name = "Comments",
+            l = {
+                name = "Line Comments",
+                c = { "Toggle Line Comments" },
+                j = { "Comment on the line below" },
+                k = { "COmment on the line above" },
+                e = { "Comment on the end of line" },
+            },
+            b = {
+                name = "Block Comments",
+                c = { "Toggle Block Comments" },
+            }
+        }
+    })
 })

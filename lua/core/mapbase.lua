@@ -7,7 +7,7 @@ map("", "<C-q>", ":qa<CR>", opts)
 map("n", "<C-s>", ":w<CR>", opts)
 
 -- Open the init.vim file anytime
-map("n", "<leader>rc", ":e $MYVIMRC<cr>", opts)
+-- map("n", "<leader>rc", ":e $MYVIMRC<cr>", opts)
 
 -- Copy and paste
 map("", "Y", '"+y', opts)
@@ -45,28 +45,28 @@ map("n", "<A-k>", "<C-w>k", opts)
 map("n", "<A-l>", "<C-w>l", opts)
 
 -- Resize splits with arrow keys
-map("", "<up>", ":resize +5<CR>", opts)
-map("", "<down>", ":resize -5<CR>", opts)
-map("", "<left>", ":vertical resize-5<CR>", opts)
-map("", "<right>", ":vertical resize+5<CR>", opts)
+map("n", "<up>", ":resize +5<CR>", opts)
+map("n", "<down>", ":resize -5<CR>", opts)
+map("n", "<left>", ":vertical resize-5<CR>", opts)
+map("n", "<right>", ":vertical resize+5<CR>", opts)
 
 -- Place the two screens up and down
-map("", "<leader>sh", "<C-w>t<C-w>K", opts)
+map("n", "<leader>sh", "<C-w>t<C-w>K", opts)
 -- Place the two screens side by side
-map("", "<leader>sv", "<C-w>t<C-w>H", opts)
+map("n", "<leader>sv", "<C-w>t<C-w>H", opts)
 
 -- Rotate screens
-map("", "<leader>rh", "<C-w>b<C-w>K", opts)
-map("", "<leader>rv", "<C-w>b<C-w>H", opts)
+map("n", "<leader>sH", "<C-w>b<C-w>K", opts)
+map("n", "<leader>sV", "<C-w>b<C-w>H", opts)
 
 -- find and replace
-map("", "\\s", ":%s///g<left><left><left>", opts)
+map("n", "<leader>fr", ":%s///gc<left><left><left><left>", opts)
 
 -- tab cd
-map("", "<leader>cd", ":tcd %:p:h<cr>", opts)
+map("n", "<leader>cd", ":tcd %:p:h<cr>", opts)
 
 -- run code
-map("", "<F5>", ":!g++ -g % -o %<<cr>", opts)
+map("n", "<F5>", ":!g++ -g % -o %<<cr>", opts)
 -- cmd([[
 --   noremap <F5> :call CompileRunGcc()<CR>
 --     func! CompileRunGcc()

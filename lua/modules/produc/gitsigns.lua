@@ -10,28 +10,6 @@ require("gitsigns").setup({
     numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
     linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-    keymaps = {
-        -- Default keymap options
-        noremap = true,
-
-        ["n ]c"] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
-        ["n [c"] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
-
-        ["n <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-        ["v <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        ["n <leader>hu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-        ["n <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-        ["v <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        ["n <leader>hR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-        ["n <leader>hp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-        ["n <leader>hb"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-        ["n <leader>hS"] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
-        ["n <leader>hU"] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
-
-        -- Text objects
-        ["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-        ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-    },
     watch_gitdir = {
         interval = 1000,
         follow_files = true,
@@ -42,14 +20,13 @@ require("gitsigns").setup({
         virt_text = true,
         virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
         delay = 1000,
+        ignore_whitespace = false,
     },
-    current_line_blame_formatter_opts = {
-        relative_time = false,
-    },
+    current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil, -- Use default
-    max_file_length = 40000,
+    max_file_length = 40000, -- Disable if file is longer than this (in lines)
     preview_config = {
         -- Options passed to nvim_open_win
         border = "single",
@@ -61,4 +38,42 @@ require("gitsigns").setup({
     yadm = {
         enable = false,
     },
+    on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, opts)
+          opts = opts or {}
+          opts.buffer = bufnr
+          vim.keymap.set(mode, l, r, opts)
+        end
+
+        -- Navigation
+        map('n', '<leader>gj', function()
+          if vim.wo.diff then return '<leader>gj' end
+          vim.schedule(function() gs.next_hunk() end)
+          return '<Ignore>'
+        end, {expr=true})
+
+        map('n', '<leader>gk', function()
+          if vim.wo.diff then return '<leader>gk' end
+          vim.schedule(function() gs.prev_hunk() end)
+          return '<Ignore>'
+        end, {expr=true})
+
+        -- Actions
+        map({'n', 'v'}, '<leader>gs', ':Gitsigns stage_hunk<CR>')
+        map({'n', 'v'}, '<leader>gr', ':Gitsigns reset_hunk<CR>')
+        map('n', '<leader>gS', gs.stage_buffer)
+        map('n', '<leader>gu', gs.undo_stage_hunk)
+        map('n', '<leader>gR', gs.reset_buffer)
+        map('n', '<leader>gp', gs.preview_hunk)
+        -- map('n', '<leader>gb', function() gs.blame_line{full=true} end)
+        -- map('n', '<leader>gb', gs.toggle_current_line_blame)
+        map('n', '<leader>gD', gs.diffthis)
+        map('n', '<leader>gd', function() gs.diffthis('~') end)
+        -- map('n', '<leader>gd', gs.toggle_deleted)
+
+        -- Text object
+        -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+    end
 })

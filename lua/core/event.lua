@@ -70,3 +70,13 @@ function autocmd.load_autocmds()
 end
 
 autocmd.load_autocmds()
+
+-- Wsl的nvim与Windows系统剪切板通信
+if vim.fn.has('wsl') then
+    vim.cmd [[
+  augroup Yank
+  autocmd!
+  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  augroup END
+  ]]
+end

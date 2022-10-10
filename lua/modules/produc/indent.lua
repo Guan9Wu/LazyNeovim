@@ -1,13 +1,24 @@
-require("indent_guides").setup({
-    -- default options
-    indent_levels = 30,
-    indent_guide_size = 1,
-    indent_start_level = 1,
-    indent_enable = true,
-    indent_space_guides = true,
-    indent_tab_guides = true,
-    indent_soft_pattern = "\\s",
-    exclude_filetypes = { "help", "dashboard", "dashpreview", "NvimTree", "vista", "sagahover", "packer" },
-    even_colors = { fg = "#2F334C", bg = "#2F334C" },
-    odd_colors = { fg = "#1F2233", bg = "#1F2233" },
-})
+vim.opt.termguicolors = true
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
+
+vim.opt.list = true
+-- vim.opt.listchars:append "space:⋅"
+-- vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    filetype_exclude = { "dashboard", "help" },
+    space_char_blankline = " ",
+    char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+        "IndentBlanklineIndent3",
+        "IndentBlanklineIndent4",
+        "IndentBlanklineIndent5",
+        "IndentBlanklineIndent6",
+    },
+}
