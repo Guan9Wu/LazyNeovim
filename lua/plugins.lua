@@ -89,8 +89,8 @@ local modules = {
     lang = {
         "cmp",
         "comment",
-        "lspconfigure",
         "nullls",
+        "lspconfigure",
         "luasnip",
         "saga",
         "treesitter",
@@ -114,4 +114,6 @@ local function load_modules(modules)
     end
 end
 
+load_modules(modules)
+load_modules(modules)
 load_modules(modules)
