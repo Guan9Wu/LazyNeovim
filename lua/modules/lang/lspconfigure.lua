@@ -77,7 +77,7 @@ require("mason-lspconfig").setup({
     -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "sumneko_lua" }
     -- This setting has no relation with the `automatic_installation` setting.
     ensure_installed = {
-        "sumneko_lua",
+        "lua_ls",
         "clangd",
         "pyright",
         "kotlin_language_server",
@@ -164,7 +164,7 @@ local lsp_flags = {
     debounce_text_changes = 150,
 }
 
-local servers = { "sumneko_lua", "clangd", "pyright" }
+local servers = { "lua_ls", "clangd", "pyright", "kotlin_language_server" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = on_attach,
@@ -225,3 +225,6 @@ else
         },
     })
 end
+
+-- setup for Kotlin
+nvim_lsp.kotlin_language_server.setup({})
