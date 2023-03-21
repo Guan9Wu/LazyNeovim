@@ -80,6 +80,7 @@ require("mason-lspconfig").setup({
         "sumneko_lua",
         "clangd",
         "pyright",
+        "kotlin_language_server",
         --"stylua",
         --"black",
         --"clang-format",
@@ -173,7 +174,7 @@ for _, lsp in ipairs(servers) do
 end
 
 -- setup for lua language server
-nvim_lsp.sumneko_lua.setup({
+nvim_lsp.lua_ls.setup({
     cmd = { "lua-language-server", "-E" },
     --on_attach = on_attach,
     --capabilities = capabilities,
