@@ -75,7 +75,7 @@ require("dapui").setup({
 
 dap.adapters.python = {
     type = 'executable';
-    command = 'path/to/virtualenvs/debugpy/bin/python';
+    command = 'python';
     args = { '-m', 'debugpy.adapter' };
 }
 
@@ -107,7 +107,7 @@ dap.configurations.python = {
 
 dap.adapters.lldb = {
     type = "executable",
-    command = "/usr/bin/lldb-vscode", -- adjust as needed
+    command = "~/.local/share/nvimmason/bin/codelldb", -- adjust as needed
     name = "lldb",
 }
 
