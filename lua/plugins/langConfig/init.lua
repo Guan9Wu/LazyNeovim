@@ -5,7 +5,10 @@ return {
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
-      servers = {},
+      servers = {
+        -- sourcekit will be automatically installed with mason and loaded with lspconfig
+        -- sourcekit = {},
+      },
     },
   },
 

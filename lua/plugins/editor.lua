@@ -47,4 +47,15 @@ return {
       use_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
     },
   },
+  {
+    "mbbill/undotree",
+    config = function()
+      vim.g.undotree_SetFocusWhenToggle = 1
+      vim.g.undotree_WindowLayout = 2
+      vim.g.undotree_RelativeTimestamp = 0
+    end,
+    keys = {
+      { "<leader>uu", "<cmd>UndotreeToggle<cr>", desc = "Toggle UndoTree" },
+    },
+  },
 }
