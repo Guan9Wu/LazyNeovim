@@ -201,4 +201,4 @@ map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- change tab directory
-map({ "n", "v" }, "<leader><tab>c", ":<cmd>tcd %:p:h<cr>", { desc = "Change tab directory"})
+map({ "n", "v" }, "<leader><tab>c", ":<cmd>tcd %:p:h<cr><cr>", { desc = "Change tab directory"})
