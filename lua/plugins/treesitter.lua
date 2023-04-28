@@ -14,7 +14,6 @@ return {
         "comment",
         "dockerfile",
         "go",
-        "help",
         "html",
         "http",
         "java",
@@ -22,6 +21,7 @@ return {
         "json",
         "latex",
         "llvm",
+        "lua",
         "make",
         "markdown",
         "markdown_inline",
@@ -30,6 +30,7 @@ return {
         "toml",
         "typescript",
         "vim",
+        "vimdoc",
         "yaml",
       },
       rainbow = {
