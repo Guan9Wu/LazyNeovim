@@ -43,6 +43,10 @@ return {
         -- TODO Fix the bug
         -- strategy = require("ts-rainbow").strategy.global,
       },
+      Highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { "markdown" },
+      },
     },
   },
 }
