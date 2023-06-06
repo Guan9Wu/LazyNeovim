@@ -1,10 +1,9 @@
 return {
   "epwalsh/obsidian.nvim",
-  -- TODO:Fix the bugs
-  -- lazy = true,
+  lazy = true,
   -- event = { "BufReadPre /mnt/win11/Users/gene9/Desktop/MyVault/**.md" },
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-  -- event = { "BufEnter " .. vim.fn.expand("~") .. "/Desktop/MyVault/**.md" },
+  event = { "BufEnter " .. vim.fn.expand("~") .. "/Desktop/MyVault/**.md" },
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
