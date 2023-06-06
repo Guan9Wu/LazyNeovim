@@ -6,4 +6,15 @@ return {
       table.insert(opts.sections.lualine_x, "😄")
     end,
   },
+  {
+    "uga-rosa/ccc.nvim",
+    config = function()
+      require("ccc").setup({
+        highlighter = {
+          auto_enable = true,
+          lsp = true,
+        },
+      })
+    end,
+  },
 }
