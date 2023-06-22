@@ -38,4 +38,5 @@ return {
   { import = "plugins.langConfig.kotlin" },
   { import = "plugins.langConfig.lua" },
   { import = "plugins.langConfig.python" },
+  { import = "plugins.langConfig.markdown_latex" },
 }
