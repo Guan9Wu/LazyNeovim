@@ -1,5 +1,5 @@
 return {
-  -- add C/C++ to treesitter
+  -- add lua to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -9,7 +9,7 @@ return {
     end,
   },
 
-  -- add C/C++ to mason
+  -- add lua to mason
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)

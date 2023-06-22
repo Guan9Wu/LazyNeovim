@@ -1,5 +1,5 @@
 return {
-  -- add C/C++ to treesitter
+  -- add kotlin to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -9,7 +9,7 @@ return {
     end,
   },
 
-  -- add C/C++ to mason
+  -- add kotlin to mason
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
