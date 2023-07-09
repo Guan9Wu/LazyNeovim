@@ -30,7 +30,26 @@ return {
     opts = {
       -- make sure mason installs the server
       servers = {
-        pyright = {},
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                autoImportCompletions = true,
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+              },
+              pythonPath = {
+                -- "/home/gavyn/.conda/pkgs/",
+                -- "/home/gavyn/.conda/envs/realsense/lib/python3.10/",
+                -- "/home/gavyn/.conda/envs/test/lib/python3.10",
+                -- "/home/gavyn/.conda/envs/test/lib/python3.10/site-packages/cv2",
+                -- "/usr/lib/python3.11/",
+                -- "/home/gavyn/.conda/envs/gpt/lib/python3.11/",
+              },
+            },
+          },
+        },
       },
     },
   },
