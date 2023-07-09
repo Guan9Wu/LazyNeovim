@@ -34,7 +34,7 @@ return {
   },
 
   -- import extension modules of the specific language
-  { import = "plugins.langConfig.c_cpp" },
+  -- { import = "plugins.langConfig.c_cpp" },
   { import = "plugins.langConfig.kotlin" },
   { import = "plugins.langConfig.lua" },
   { import = "plugins.langConfig.python" },
