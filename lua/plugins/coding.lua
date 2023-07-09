@@ -14,4 +14,8 @@ return {
     },
     config = true,
   },
+  {
+    "ahmedkhalf/project.nvim",
+    opts = { scope_chdir = "tab" },
+  },
 }
