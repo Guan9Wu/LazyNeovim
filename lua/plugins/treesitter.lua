@@ -2,10 +2,10 @@ return {
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      -- Rainbow delimiters for Neovim through Tree-sitter
-      -- "HiPhish/nvim-ts-rainbow2",
-    },
+    -- dependencies = {
+    -- Rainbow delimiters for Neovim through Tree-sitter
+    -- "HiPhish/nvim-ts-rainbow2",
+    -- },
     opts = {
       ensure_installed = {
         "bash",
