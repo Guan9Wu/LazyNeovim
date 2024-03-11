@@ -3,7 +3,8 @@
     "lazyvim.plugins.extras.coding.codeium",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.dap.nlua",
-    "lazyvim.plugins.extras.editor.symbols-outline",
+    "lazyvim.plugins.extras.editor.harpoon2",
+    "lazyvim.plugins.extras.editor.outline",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.clangd",
@@ -14,6 +15,7 @@
     "lazyvim.plugins.extras.lang.python-semshi",
     "lazyvim.plugins.extras.lang.tex",
     "lazyvim.plugins.extras.lang.yaml",
+    "lazyvim.plugins.extras.lazyrc",
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.dot",
@@ -23,5 +25,5 @@
   "news": {
     "NEWS.md": "2123"
   },
-  "version": 2
+  "version": 3
 }
