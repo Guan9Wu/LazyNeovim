@@ -19,4 +19,24 @@ return {
       },
     },
   },
+  -- markdown
+  -- { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        markdown = { "markdownlint" },
+      },
+      linters = {
+        markdownlint = {
+          cmd = "markdownlint",
+          -- args = { "--disable", "MD033", "--fix" },
+          args = {
+            "--config",
+            "~/.config/nvim/lspconfigs/markdownlint.jsonc",
+          },
+        },
+      },
+    },
+  },
 }
