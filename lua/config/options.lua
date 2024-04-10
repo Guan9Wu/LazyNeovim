@@ -37,8 +37,6 @@ opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift t
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.spelllang = { "en", "cjk" }
-opt.splitbelow = true -- Put new windows below current
-opt.splitright = true -- Put new windows right of current
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.timeoutlen = 300
@@ -48,10 +46,48 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
+opt.splitkeep = "screen"
+opt.shortmess:append({ C = true })
 
-if vim.fn.has("nvim-0.9.0") == 1 then
-  opt.splitkeep = "screen"
-  opt.shortmess:append({ C = true })
+if vim.g.neovide then
+  vim.o.guifont = "Hack Nerd Font:h12"
+  vim.g.neovide_confirm_quit = true
+  vim.g.neovide_fullscreen = false
+  vim.g.neovide_remember_window_size = false
+  -- only enables IME in input mode and when searching
+  local function set_ime(args)
+    if args.event:match("Enter$") then
+      vim.g.neovide_input_ime = true
+    else
+      vim.g.neovide_input_ime = false
+    end
+  end
+
+  local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = true })
+
+  vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
+    group = ime_input,
+    pattern = "*",
+    callback = set_ime,
+  })
+
+  vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
+    group = ime_input,
+    pattern = "[/\\?]",
+    callback = set_ime,
+  })
+
+  -- Dynamically Change The Scale At Runtime
+  -- vim.g.neovide_scale_factor = 1.0
+  -- local change_scale_factor = function(delta)
+  --   vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+  -- end
+  -- vim.keymap.set("n", "<C-=>", function()
+  --   change_scale_factor(1.25)
+  -- end)
+  -- vim.keymap.set("n", "<C-->", function()
+  --   change_scale_factor(1 / 1.25)
+  -- end)
 end
 
 -- Fix markdown indentation settings
