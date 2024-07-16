@@ -1,21 +1,37 @@
 return {
-  -- add symbols-outline
+  -- leetcode
   {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = {
-      { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" },
+    "kawre/leetcode.nvim",
+    cmd = "Leet",
+    build = ":TSUpdate html",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      hover_symbol = "K",
-      toggle_preview = "P",
-      fold_all = "H",
-      unfold_all = "L",
+      -- configuration goes here
+      cn = {
+        enabled = true,
+      },
+      plugins = {
+        non_standalone = true,
+      },
+      injector = {
+        ["python3"] = {
+          before = true,
+        },
+        ["cpp"] = {
+          before = { "#include <bits/stdc++.h>", "using namespace std;" },
+          after = "}; \n int main() {}",
+        },
+        ["java"] = {
+          before = "import java.util.*;",
+        },
+      },
     },
-    config = true,
-  },
-  {
-    "ahmedkhalf/project.nvim",
-    opts = { scope_chdir = "tab" },
   },
 }
